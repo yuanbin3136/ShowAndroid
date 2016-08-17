@@ -33,13 +33,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_action.setOnClickListener(this);
     }
     private void anim(View view,boolean isOpen){
-        ObjectAnimator animAlpha;
-        ObjectAnimator animTrans;
+        ObjectAnimator animAlpha = null;
+        ObjectAnimator animTrans = null;
         if (isOpen){
+            if (isAlphaOpen())
             animAlpha = ObjectAnimator.ofFloat(view,"alpha" ,1f,0f);
+            if (isTransOpen())
             animTrans = ObjectAnimator.ofFloat(view,"TranslationX",0,view.getWidth());
         }else {
+            if (isAlphaOpen())
             animAlpha = ObjectAnimator.ofFloat(view,"alpha" ,0f,1f);
+            if (isTransOpen())
             animTrans = ObjectAnimator.ofFloat(view,"TranslationX",view.getWidth(),0);
         }
 
