@@ -48,7 +48,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         AnimatorSet animSet = new AnimatorSet();
-        animSet.playTogether(animAlpha,animTrans);
+        if(animAlpha != null)
+            animSet.play(animAlpha);
+        if (animTrans != null)
+            animSet.play(animTrans);
+//        animSet.playTogether(animAlpha,animTrans);
+
 //        animTrans.start();
 //        animAlpha.start();
 //        view.startAnimation();
