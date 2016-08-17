@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yuanbin.androidshow.MainActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@android:color/darker_gray"
+        android:id="@+id/linearLayout"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11111"
+            android:id="@+id/tv_1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11111"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/tv_2" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11111"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/tv_3" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11111"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/tv_4" />
+    </LinearLayout>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="渐变"
+        android:id="@+id/switch_alpha"
+        android:checked="false"
+        android:layout_marginTop="50dp"
+        android:layout_alignEnd="@+id/btn_action" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sb_duration"
+        android:layout_below="@+id/switch_trans"
+        android:max="100"
+        android:indeterminate="false" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="位移"
+        android:id="@+id/switch_trans"
+        android:layout_below="@+id/switch_alpha"
+        android:layout_alignStart="@+id/switch_alpha"
+        android:checked="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="action"
+        android:id="@+id/btn_action"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/sb_duration"
+        android:layout_marginBottom="44dp" />
+
+</RelativeLayout>
