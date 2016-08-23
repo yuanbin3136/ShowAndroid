@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">What to eat for lunch</string>
+    <string name="author">yuanbin3136</string>
+    <string name="whateat">今天中午吃什么</string>
+    <string name="next_food">昨天吃过了</string>
+</resources>
