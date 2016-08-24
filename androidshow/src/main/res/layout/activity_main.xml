@@ -53,9 +53,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sb_duration"
-        android:layout_below="@+id/switch_trans"
-        android:max="100"
-        android:indeterminate="false" />
+        android:max="700"
+        android:indeterminate="false"
+        android:layout_below="@+id/tv_duration"
+        android:layout_alignStart="@+id/linearLayout" />
 
     <Switch
         android:layout_width="wrap_content"
@@ -74,5 +75,13 @@
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/sb_duration"
         android:layout_marginBottom="44dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="时长"
+        android:id="@+id/tv_duration"
+        android:layout_below="@+id/switch_trans"
+        android:layout_alignStart="@+id/switch_trans" />
 
 </RelativeLayout>

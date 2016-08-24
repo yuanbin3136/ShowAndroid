@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,6 +19,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Switch switch_trans;
     private SeekBar sb_duration;
     private LinearLayout ll;
+
+    int duration = 300;
+    private TextView tv_duration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +32,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch_trans = (Switch) findViewById(R.id.switch_trans);
         sb_duration = (SeekBar) findViewById(R.id.sb_duration);
         ll = (LinearLayout) findViewById(R.id.linearLayout);
+        tv_duration = (TextView) findViewById(R.id.tv_duration);
+
         initLis();
     }
     private void initLis(){
         btn_action.setOnClickListener(this);
+        sb_duration.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                duration = progress + 300;
+                tv_duration.setText("时间："+ (progress + 300) + "毫秒");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
     private void anim(View view,boolean isOpen){
         ObjectAnimator animAlpha = null;
@@ -57,7 +81,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        animTrans.start();
 //        animAlpha.start();
 //        view.startAnimation();
-        animSet.start();
+
+        animSet.setDuration(duration);
+
+        if(animSet.getChildAnimations().size() > 0){
+            animSet.start();
+        }else{
+            Toast.makeText(this,"还没有选择任何动画效果",Toast.LENGTH_SHORT).show();
+        }
     }
 
     boolean isOpen;
