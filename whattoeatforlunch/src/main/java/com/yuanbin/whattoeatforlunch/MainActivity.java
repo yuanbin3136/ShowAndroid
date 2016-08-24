@@ -1,9 +1,11 @@
 package com.yuanbin.whattoeatforlunch;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.yuanbin.whattoeatforlunch.add.AddActivity;
 import com.yuanbin.whattoeatforlunch.base.BaseActivity;
 import com.yuanbin.whattoeatforlunch.utils.Choice;
 import com.yuanbin.whattoeatforlunch.utils.L;
@@ -22,6 +24,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void initViewAfter() {
         btn_start = (Button) findViewById(R.id.btn_start);
         tv_result = (TextView) findViewById(R.id.tv_result);
+        findViewById(R.id.btn_additem).setOnClickListener(this);
+
         initLis();
         super.initViewAfter();
     }
@@ -64,8 +68,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         break;
                 }showChoice();
                 break;
+            case R.id.btn_additem:
+                toAdd();
+                break;
             default:
         }
+    }
+    private void toAdd(){
+        Intent intent = new Intent(this, AddActivity.class);
+        startActivity(intent);
     }
     Choice choice;
     Choice.OnChoice onChoice = new Choice.OnChoice() {
